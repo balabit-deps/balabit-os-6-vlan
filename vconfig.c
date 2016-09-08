@@ -52,8 +52,11 @@ static char* usage =
 "* vlan_qos is the 3 bit priority in the VLAN header\n"
 "* name-type:  VLAN_PLUS_VID (vlan0005), VLAN_PLUS_VID_NO_PAD (vlan5),\n"
 "              DEV_PLUS_VID (eth0.0005), DEV_PLUS_VID_NO_PAD (eth0.5)\n"
+// Debian: this option appears nowhere else in the source, see Debian #398807
+#if 0
 "* bind-type:  PER_DEVICE  # Allows vlan 5 on eth0 and eth1 to be unique.\n"
 "              PER_KERNEL  # Forces vlan 5 to be unique across all devices.\n"
+#endif
 "* FLAGS:  1 REORDER_HDR  When this is set, the VLAN device will move the\n"
 "            ethernet header around to make it look exactly like a real\n"
 "            ethernet device.  This may help programs such as DHCPd which\n"

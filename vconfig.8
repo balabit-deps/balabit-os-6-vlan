@@ -22,8 +22,8 @@ will be called according to the nameing convention set.
 Removes the named vlan\-device.
 .TP
 .B set_flag [vlan\-device] 0 | 1
-When 1, ethernet header reorders are turned on. Dumping the device
-will appear as a common ethernet device without vlans. When 0(default)
+When 1 (the default since 2.6.18), ethernet header reorders are turned on.
+Dumping the device will appear as a common ethernet device without vlans. When 0
 however, ethernet headers are not reordered, which results in vlan tagged
 packets when dumping the device. Usually the default gives no problems,
 but some packet filtering programs might have problems with it.
