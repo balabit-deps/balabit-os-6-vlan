@@ -1,3 +1,28 @@
+vlan (1.9-3.2ubuntu1.16.04.4) xenial; urgency=medium
+
+  * Allow ip-rp-filter to be 0, 1, or 2 instead of only 0 or 1
+    (LP: #1716964)
+
+ -- Dan Streetman <dan.streetman@canonical.com>  Wed, 20 Sep 2017 09:30:21 -0400
+
+vlan (1.9-3.2ubuntu1.16.04.3) xenial; urgency=medium
+
+  * Correct previous patch, to work for ifupdown configuration where a
+    vlan is configured but the vlan's raw device has no ifupdown config.
+    (LP: #1573272)
+
+ -- Dan Streetman <dan.streetman@canonical.com>  Mon, 29 May 2017 18:13:27 -0400
+
+vlan (1.9-3.2ubuntu1.16.04.2) xenial; urgency=medium
+
+  * In vlan ifupdown pre-up script, instead of calling ip link up for
+    raw device before creating vlan interface, do a full ifup for raw
+    device.  Otherwise, if raw device processes ifup after vlan device,
+    the raw device may be taken down and back up, which removes all vlan
+    routes and other configuration. (LP: #1573272)
+
+ -- Dan Streetman <dan.streetman@canonical.com>  Thu, 30 Mar 2017 09:16:10 -0400
+
 vlan (1.9-3.2ubuntu1.16.04.1) xenial; urgency=medium
 
   * If VLAN is configured with higher MTU than raw device MTU, which can

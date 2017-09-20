@@ -60,7 +60,9 @@ if [ -n "$IF_VLAN_RAW_DEVICE" ] && [ ! -d /sys/class/net/$IFACE ]; then
         exit 1
     fi
     if [ ! -e "/sys/class/net/$IFACE" ]; then
-        ip link set up dev $IF_VLAN_RAW_DEVICE
+        # Try ifup for the raw device, if it fails then bring it up directly
+        # this is required e.g. there is no configuration for the raw device
+        ifup $IF_VLAN_RAW_DEVICE || ip link set up dev $IF_VLAN_RAW_DEVICE
         vconfig add $IF_VLAN_RAW_DEVICE $VLANID
     fi
 fi
