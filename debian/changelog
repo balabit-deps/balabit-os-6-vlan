@@ -1,3 +1,11 @@
+vlan (1.9-3.2ubuntu1.16.04.5) xenial; urgency=medium
+
+  * Revert change for lp1573272; instead fix by redesigning when vlan
+    interfaces are created; after raw-device ifup, not during raw-device
+    udev processing. (LP: #1701023)
+
+ -- Dan Streetman <ddstreet@canonical.com>  Thu, 19 Apr 2018 18:10:17 -0400
+
 vlan (1.9-3.2ubuntu1.16.04.4) xenial; urgency=medium
 
   * Allow ip-rp-filter to be 0, 1, or 2 instead of only 0 or 1
